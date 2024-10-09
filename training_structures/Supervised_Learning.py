@@ -43,11 +43,11 @@ class MMDL(nn.Module):
         """
         outs = []
         if self.has_padding:
-            for i in range(1):
+            for i in range(len(inputs[0])):
                 outs.append(self.encoders[i](
                     [inputs[0][i], inputs[1][i]]))
         else:
-            for i in range(1):
+            for i in range(len(inputs)):
                 outs.append(self.encoders[i](inputs[i]))
         self.reps = outs
         if self.has_padding:
